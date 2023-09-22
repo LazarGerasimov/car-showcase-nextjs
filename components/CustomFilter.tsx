@@ -1,8 +1,8 @@
 
-const CustomFilter = () => {
-  return (
-    <div>CustomFilter</div>
-  )
+const CustomFilter = ({ title }: any) => {
+    return (
+        <div>CustomFilter</div>
+    )
 }
 
 export default CustomFilter
