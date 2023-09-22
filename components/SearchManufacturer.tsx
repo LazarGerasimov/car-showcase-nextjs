@@ -30,6 +30,8 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
               alt="car logo"
             />
           </Combobox.Button>
+
+          {/* Input field for searching */}
           <Combobox.Input
             className="search-manufacturer__input"
             placeholder="Volkswagen"
@@ -37,6 +39,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
             onChange={(e) => setQuery(e.target.value)}
           />
 
+          {/* Transition for displaying options */}
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
@@ -61,7 +64,19 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
                   `}
                       value={item}
                     >
-                      {item}
+                      {({ selected, active }) => (
+                        <>
+                          <span className={`block truncate cursor-pointer ${selected ? "font-medium" : "font-normal"}`}>
+                            {item}
+                          </span>
+
+                          {/* Show an active blue background color if the option is selected */}
+                          {selected ? (
+                            <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-white" : "text-pribg-primary-purple"}`}
+                            ></span>
+                          ) : null}
+                        </>
+                      )}
                     </Combobox.Option>
                   ))
                 )}
