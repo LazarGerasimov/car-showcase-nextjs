@@ -15,7 +15,7 @@ const CarCard = ({ car }: CarCardProps) => {
     const carRent = calculateCarRent(city_mpg, year);
 
     return (
-        <div className="car-card group">
+        <div className="car-card group cursor-pointer">
             <div className="car-card__content">
                 <h2 className="car-card__content-title">
                     {make} {model}
@@ -28,6 +28,16 @@ const CarCard = ({ car }: CarCardProps) => {
                     per day
                 </span>
             </p>
+
+            <div className="relative w-full h-40 my-3 object-contain">
+                <Image
+                    src="/hero.png"
+                    alt="car_image"
+                    fill
+                    priority
+                    className="object-contain"
+                />
+            </div>
         </div>
     )
 }
